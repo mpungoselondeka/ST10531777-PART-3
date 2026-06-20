@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Impact | Luhlelo Water Crisis Reporting</title>
+    <meta name="description" content="See how Luhlelo's real-time sensor integration and citizen reporting platform are reducing water loss, cutting the 48-hour reporting lag, and improving service delivery across South Africa.">
+    <meta name="keywords" content="Luhlelo impact, water loss South Africa, IoT water sensors, GIS water mapping, water borne disease reduction, municipal accountability">
+    <meta name="author" content="Luhlelo Pty Ltd">
+    <link rel="canonical" href="https://www.luhlelo.org/impact.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Our Impact | Luhlelo Water Crisis Reporting">
+    <meta property="og:description" content="How Luhlelo reduces water loss and reporting lag across South African municipalities.">
+    <meta property="og:image" content="images/og-impact-luhlelo.jpg">
+    <meta property="og:url" content="https://www.luhlelo.org/impact.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+</head>
+<body>
+   <a class="skip-link" href="#main-content">Skip to main content</a>
+
+   <header>
+    <img src="images/logo.png" alt="Luhlelo organisation logo" class="logo">
+        <h2 class="site-title">Luhlelo</h2>
+        <nav aria-label="Primary">
+            <ul>
+                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donations.html">Donations</a></li>
+                <li><a href="impact.html" aria-current="page">Impact</a></li>
+                <li><a href="complaints.html">Complaints</a></li>
+            </ul>
+        </nav>
+   </header>
+
+
+   <main id="main-content">
+
+    <h1 class="impact-title">The impact of the Luhlelo organisation</h1>
+
+    <div class="impact-search" role="search">
+        <label for="impact-search-input">Search this page</label>
+        <input type="search" id="impact-search-input" placeholder="Try “sensors”, “maintenance”, “informal settlements”…" aria-describedby="impact-search-count">
+        <button type="button" id="impact-search-clear" class="btn-secondary" style="padding:8px 16px; font-size:14px;">Clear</button>
+        <span class="result-count" id="impact-search-count" aria-live="polite">Showing all 5 sections</span>
+    </div>
+
+    <p class="no-results" id="impact-no-results">No sections match your search. Try a different word, like "sensors" or "maintenance".</p>
+
+    <section id="impact-report" data-searchable>
+    <h2>Impact report</h2>
+    <p>The current water loss in South African municipalities is exacerbated by a significant "reporting lag." Our website is designed to help municipalities react in real time.</p>
+   </section>
+
+    <section id="the-problem" data-searchable>
+        <h2>The current crisis: the 48-hour lag</h2>
+        <div class="impact-card">
+            <p>Citizen-based reporting relies on manual observation, airtime availability, and call centre operating hours. By the time a leak is logged in the database:</p>
+            <ul>
+                <li>Thousands of litres of treated water are lost.</li>
+                <li>Soil erosion around the leak often leads to secondary road damage.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="the-solution" data-searchable>
+        <h2>Technical solution: real-time sensor integration</h2>
+        <p>Our website utilises Internet of Things sensor arrays. When a pressure-drop event is detected, the system bypasses manual entry and updates the municipal dashboard immediately.</p>
+    </section>
+
+    <section id="maintenance" data-searchable>
+        <h2>Proactive maintenance</h2>
+        <p>This website, combined with GIS mapping, helps municipalities keep track of all their infrastructure — which pipes have been installed the longest — so they can predict their next maintenance areas.</p>
+    </section>
+
+    <section id="reaching-everyone" data-searchable>
+        <h2>Impact on both urban and informal settlements</h2>
+        <p>The Luhlelo foundation has made it easier for people in urban areas as well as those in informal settlements to reach out to their municipalities, which has helped:</p>
+        <ul>
+            <li>Reduce water-borne diseases.</li>
+            <li>Hold municipalities accountable.</li>
+        </ul>
+    </section>
+
+   </main>
+   <footer>
+    <div>Operating hours: 08h00 – 17h00</div>
+    <div>Call: <a href="tel:+27723297487">072 329 7487</a></div>
+    <div>Email: <a href="mailto:Luhleloorganisation@gmail.com">Luhleloorganisation@gmail.com</a></div>
+    <div>&copy; <span id="footer-year">2026</span> Luhlelo Pty Ltd. All rights reserved.</div>
+   </footer>
+
+   <script src="js/impact-search.js"></script>
+   <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+   </script>
+</body>
+</html>

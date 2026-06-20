@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Donate to Luhlelo | Support Local Water Projects</title>
+    <meta name="description" content="Support active water infrastructure projects in South African municipalities. Choose a donation tier or enter your own amount to fund emergency water packs and pipe repairs.">
+    <meta name="keywords" content="donate water South Africa, water crisis fund, fund pipe repair, emergency water pack donation, municipal water project funding">
+    <meta name="author" content="Luhlelo Pty Ltd">
+    <link rel="canonical" href="https://www.luhlelo.org/donations.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Donate to Luhlelo | Support Local Water Projects">
+    <meta property="og:description" content="Fund emergency water packs and pipe repairs in South African municipalities.">
+    <meta property="og:image" content="images/og-donations-luhlelo.jpg">
+    <meta property="og:url" content="https://www.luhlelo.org/donations.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+</head>
+<body>
+   <a class="skip-link" href="#main-content">Skip to main content</a>
+
+   <header>
+    <img src="images/logo.png" alt="Luhlelo organisation logo" class="logo">
+        <h2 class="site-title">Luhlelo</h2>
+        <nav aria-label="Primary">
+            <ul>
+                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donations.html" aria-current="page">Donations</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="complaints.html">Complaints</a></li>
+            </ul>
+        </nav>
+   </header>
+
+   <main id="main-content">
+    <div class="form-card">
+        <form novalidate data-validate-form data-success-message="Thank you for your generosity — your contribution will go directly toward active water projects in your community.">
+          <h2>Support the local municipal water crisis fund</h2>
+          <p>Select an amount to contribute</p>
+
+          <fieldset>
+            <legend>Donation amount <span class="required-mark">*</span></legend>
+            <div class="radio-option">
+                <input type="radio" id="tier1" name="amount" value="150">
+                <label for="tier1">R150 — emergency water pack for a family of 10</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="tier2" name="amount" value="500">
+                <label for="tier2">R500 — repairing the high pressure valve at the intersection</label>
+            </div>
+            <div class="form-field" style="margin-top:14px;">
+                <label for="custom">Or enter your own amount (R)</label>
+                <input type="number" id="custom" name="customamount" min="10" step="1" placeholder="e.g. 250">
+                <span class="field-hint">Leave blank if you selected a tier above.</span>
+                <span class="field-error" role="alert"></span>
+            </div>
+            <span class="field-error" role="alert"></span>
+          </fieldset>
+
+          <div class="form-field">
+            <label for="fullname">Full name <span class="required-mark">*</span></label>
+            <input type="text" id="fullname" name="fullname" required minlength="2" data-validate="name" data-error="Please enter your full name.">
+            <span class="field-error" role="alert"></span>
+          </div>
+
+          <div class="center-submit">
+            <button type="submit" class="form-submit">Proceed to payment</button>
+          </div>
+
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </form>
+    </div>
+
+    <h2>Active water projects in your area</h2>
+    <p>Track progress and help us reach the finish line.</p>
+
+    <hr>
+
+    <section>
+        <h3>1. KwaDlangezwa pipe replacement (main line)</h3>
+        <p><strong>Status:</strong> In progress — 60% complete</p>
+        <p>Replacing 4 high pressure valves in ward 6.</p>
+
+        <label for="project1">Funding progress (R45,000 of R60,000):</label><br>
+        <progress id="project1" value="45000" max="60000"></progress>
+
+        <br><br>
+        <button type="button" class="btn-secondary">Contribute to this project</button>
+    </section>
+
+    <hr>
+
+    <h3>Recently completed</h3>
+    <ul>
+        <li><strong>Ngwelezane:</strong> 500m steel pipes repaired (March 2026)</li>
+        <li><strong>Niwe:</strong> JoJo tank installed</li>
+    </ul>
+
+    <img src="images/completed-project.jpg" alt="Completed water infrastructure project in Niwe">
+
+   </main>
+   <footer>
+    <div>Operating hours: 08h00 – 17h00</div>
+    <div>Call: <a href="tel:+27723297487">072 329 7487</a></div>
+    <div>Email: <a href="mailto:Luhleloorganisation@gmail.com">Luhleloorganisation@gmail.com</a></div>
+    <div>&copy; <span id="footer-year">2026</span> Luhlelo Pty Ltd. All rights reserved.</div>
+   </footer>
+
+   <script src="js/form-validation.js"></script>
+   <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+    // Cross-field rule: require either a tier radio OR a custom amount.
+    (function () {
+        const form = document.querySelector('form[data-validate-form]');
+        if (!form) return;
+        const fieldset = form.querySelector("fieldset");
+        const fieldsetError = fieldset.querySelector(":scope > .field-error");
+        const customInput = document.getElementById("custom");
+
+        function amountChosen() {
+            const radioChecked = form.querySelector('input[name="amount"]:checked');
+            const customValue = customInput.value.trim();
+            return Boolean(radioChecked) || customValue !== "";
+        }
+
+        form.addEventListener("submit", function (e) {
+            if (!amountChosen()) {
+                fieldsetError.textContent = "Please select a tier or enter a custom donation amount.";
+                fieldsetError.style.display = "inline-block";
+                fieldset.style.border = "2px solid #c0392b";
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                customInput.focus();
+            } else {
+                fieldsetError.textContent = "";
+                fieldsetError.style.display = "none";
+                fieldset.style.border = "1px solid rgba(255,255,255,0.5)";
+            }
+        }, true); // capture phase: runs before form-validation.js's listener
+    })();
+   </script>
+</body>
+</html>
